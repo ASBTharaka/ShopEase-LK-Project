@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopEase LK — Wireframes</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Base ─────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F5F3EF;
+  --surface:#FFFFFF;
+  --surface2:#EFEFEB;
+  --border:#D8D4CC;
+  --border-strong:#B0AA9E;
+  --text:#1A1814;
+  --text2:#6B6560;
+  --text3:#9E9890;
+  --accent:#1A3A2A;
+  --accent2:#2E6B4A;
+  --accent-light:#D6EBE0;
+  --tag:#E8E4DC;
+  --warn:#F5E6C8;
+  --warn-text:#7A5A1A;
+  --danger:#F5D6D6;
+  --danger-text:#7A1A1A;
+  --mono:'DM Mono',monospace;
+  --sans:'DM Sans',sans-serif;
+  --display:'Syne',sans-serif;
+  --radius:6px;
+  --shadow:0 1px 3px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.04);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:13px;line-height:1.5}
+
+/* ── Nav ─────────────────────────────────────────────── */
+.site-nav{
+  position:sticky;top:0;z-index:100;
+  background:var(--accent);
+  padding:0 2rem;
+  display:flex;align-items:center;gap:1rem;
+  border-bottom:2px solid var(--accent2);
+}
+.site-nav .brand{
+  font-family:var(--display);font-weight:800;font-size:16px;
+  color:#fff;padding:14px 0;margin-right:1rem;letter-spacing:-.3px;
+  white-space:nowrap;
+}
+.site-nav .brand span{color:#7EC8A0}
+.site-nav a{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  color:rgba(255,255,255,.65);text-decoration:none;padding:6px 10px;
+  border-radius:4px;white-space:nowrap;letter-spacing:.02em;
+  transition:all .15s;
+}
+.site-nav a:hover,.site-nav a.active{background:rgba(255,255,255,.12);color:#fff}
+.badge-wf{
+  margin-left:auto;font-family:var(--mono);font-size:10px;
+  background:rgba(255,255,255,.1);color:rgba(255,255,255,.5);
+  padding:3px 10px;border-radius:20px;white-space:nowrap;
+}
+
+/* ── Page shell ──────────────────────────────────────── */
+.page-wrap{max-width:1200px;margin:0 auto;padding:2.5rem 2rem 4rem}
+.screen-section{margin-bottom:5rem}
+.screen-label{
+  display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;
+}
+.screen-num{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  background:var(--accent);color:#fff;padding:3px 10px;border-radius:20px;
+}
+.screen-title{font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:-.3px}
+.screen-desc{font-size:12px;color:var(--text2);margin-bottom:1rem;font-family:var(--mono)}
+.wf-frame{
+  background:var(--surface);border:1.5px solid var(--border);
+  border-radius:10px;overflow:hidden;box-shadow:var(--shadow);
+}
+.wf-bar{
+  background:var(--surface2);border-bottom:1px solid var(--border);
+  padding:8px 14px;display:flex;align-items:center;gap:6px;
+}
+.wf-dot{width:9px;height:9px;border-radius:50%}
+.wf-dot.r{background:#EE6B6B}.wf-dot.y{background:#F0C43B}.wf-dot.g{background:#57C57A}
+.wf-url{
+  flex:1;background:var(--border);border-radius:3px;
+  font-family:var(--mono);font-size:10px;color:var(--text2);
+  padding:3px 10px;margin:0 10px;
+}
+
+/* ── Shared wireframe components ─────────────────────── */
+.wf-topbar{
+  background:var(--accent);color:#fff;
+  padding:10px 20px;display:flex;align-items:center;gap:1rem;
+}
+.wf-logo{font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:-.2px}
+.wf-logo span{color:#7EC8A0}
+.wf-search{
+  flex:1;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);
+  border-radius:4px;padding:6px 12px;font-family:var(--mono);font-size:11px;
+  color:rgba(255,255,255,.6);display:flex;align-items:center;gap:6px;
+}
+.wf-topbar-actions{display:flex;gap:.5rem;margin-left:auto}
+.wf-btn{
+  font-family:var(--mono);font-size:10px;font-weight:500;
+  padding:5px 12px;border-radius:4px;cursor:pointer;border:none;
+  white-space:nowrap;
+}
+.wf-btn.pri{background:#7EC8A0;color:var(--accent)}
+.wf-btn.sec{background:rgba(255,255,255,.12);color:#fff}
+.wf-btn.out{background:transparent;border:1px solid var(--border);color:var(--text2)}
+.wf-btn.danger{background:var(--danger);color:var(--danger-text)}
+.wf-btn.sm{padding:3px 9px;font-size:10px}
+
+.wf-tag{
+  display:inline-block;font-family:var(--mono);font-size:10px;
+  padding:2px 8px;border-radius:3px;
+}
+.wf-tag.green{background:var(--accent-light);color:var(--accent2)}
+.wf-tag.amber{background:var(--warn);color:var(--warn-text)}
+.wf-tag.red{background:var(--danger);color:var(--danger-text)}
+.wf-tag.gray{background:var(--tag);color:var(--text2)}
+.wf-tag.blue{background:#D6E4F5;color:#1A3A6A}
+
+.wf-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:14px;
+}
+.wf-section-head{
+  font-family:var(--display);font-size:14px;font-weight:700;
+  margin-bottom:.75rem;letter-spacing:-.2px;
+}
+.wf-label{font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:3px}
+.wf-input{
+  width:100%;background:var(--surface2);border:1px solid var(--border);
+  border-radius:4px;padding:7px 10px;font-family:var(--mono);font-size:11px;color:var(--text2);
+}
+.wf-divider{border:none;border-top:1px solid var(--border);margin:.75rem 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.flex{display:flex;align-items:center}
+.flex-between{display:flex;align-items:center;justify-content:space-between}
+.gap4{gap:.4rem}.gap8{gap:.75rem}.gap12{gap:1rem}
+.mb4{margin-bottom:.4rem}.mb8{margin-bottom:.75rem}.mb12{margin-bottom:1rem}
+.p12{padding:1rem}.p16{padding:1.25rem}
+.bold{font-weight:600}.mono{font-family:var(--mono)}
+.small{font-size:11px}.xsmall{font-size:10px}
+.muted{color:var(--text2)}.accent{color:var(--accent2)}
+
+/* ── Sidebar layout ──────────────────────────────────── */
+.sidebar-layout{display:grid;grid-template-columns:200px 1fr;min-height:400px}
+.wf-sidebar{background:var(--surface2);border-right:1px solid var(--border);padding:1rem 0}
+.wf-sidebar-item{
+  padding:7px 16px;font-size:12px;color:var(--text2);cursor:pointer;
+  display:flex;align-items:center;gap:.5rem;font-family:var(--mono);
+  border-left:2px solid transparent;
+}
+.wf-sidebar-item.active{
+  background:var(--accent-light);color:var(--accent);
+  border-left-color:var(--accent2);font-weight:600;
+}
+.wf-sidebar-section{
+  font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--text3);padding:12px 16px 4px;
+}
+
+/* placeholder image blocks */
+.img-ph{
+  background:var(--surface2);border:1px dashed var(--border-strong);
+  border-radius:4px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:10px;color:var(--text3);
+}
+
+/* star rating */
+.stars{color:#E0A830;font-size:12px;letter-spacing:1px}
+
+/* annotation label */
+.annotation{
+  display:inline-flex;align-items:center;gap:4px;
+  font-family:var(--mono);font-size:10px;color:var(--accent2);
+  background:var(--accent-light);padding:2px 8px;border-radius:20px;
+}
+
+/* ── Screen 1: Home Page ─────────────────────────────── */
+.hero-banner{
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 100%);
+  padding:2rem;color:#fff;display:grid;grid-template-columns:1fr 220px;gap:1rem;
+  align-items:center;
+}
+.hero-text h2{font-family:var(--display);font-size:22px;font-weight:800;margin-bottom:.4rem}
+.hero-text p{font-size:12px;opacity:.8;margin-bottom:.75rem}
+.hero-img{height:100px;background:rgba(255,255,255,.1);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:10px;opacity:.6}
+.cat-strip{
+  padding:.75rem 1rem;background:var(--surface2);border-bottom:1px solid var(--border);
+  display:flex;gap:.5rem;overflow-x:auto;
+}
+.cat-pill{
+  font-family:var(--mono);font-size:10px;padding:4px 12px;border-radius:20px;
+  background:var(--surface);border:1px solid var(--border);
+  white-space:nowrap;cursor:pointer;color:var(--text2);
+}
+.cat-pill.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;padding:1rem}
+.prod-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;transition:box-shadow .15s;
+}
+.prod-thumb{height:90px;background:var(--surface2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:10px;color:var(--text3);}
+.prod-info{padding:8px}
+.prod-name{font-size:12px;font-weight:500;margin-bottom:3px;line-height:1.3}
+.prod-price{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent2)}
+.prod-seller{font-size:10px;color:var(--text3);margin-top:2px}
+.verified-badge{
+  display:inline-flex;align-items:center;gap:3px;
+  font-family:var(--mono);font-size:9px;color:var(--accent2);
+  background:var(--accent-light);padding:1px 6px;border-radius:3px;
+}
+
+/* ── Screen 2: Product Detail ────────────────────────── */
+.breadcrumb{
+  font-family:var(--mono);font-size:10px;color:var(--text3);
+  padding:.75rem 1rem;border-bottom:1px solid var(--border);
+}
+.prod-detail-layout{display:grid;grid-template-columns:280px 1fr;gap:1.5rem;padding:1.25rem}
+.thumb-main{height:180px;background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:.5rem}
+.thumb-row{display:flex;gap:.4rem}
+.thumb-sm{height:44px;width:44px;background:var(--surface2);border:1px solid var(--border);
+  border-radius:3px;flex-shrink:0}
+.review-row{display:flex;align-items:flex-start;gap:.75rem;padding:.6rem 0;
+  border-bottom:1px solid var(--border)}
+.review-avatar{width:28px;height:28px;background:var(--accent-light);border-radius:50%;
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:600;color:var(--accent2)}
+
+/* ── Screen 3: Checkout ──────────────────────────────── */
+.checkout-layout{display:grid;grid-template-columns:1fr 300px;gap:1.5rem;padding:1.25rem}
+.step-bar{
+  display:flex;align-items:center;gap:0;padding:.75rem 1rem;
+  border-bottom:1px solid var(--border);background:var(--surface2);
+}
+.step{display:flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:10px}
+.step-circle{
+  width:20px;height:20px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:10px;font-weight:600;flex-shrink:0;
+}
+.step.done .step-circle{background:var(--accent2);color:#fff}
+.step.active .step-circle{background:var(--accent);color:#fff}
+.step.todo .step-circle{background:var(--surface2);border:1px solid var(--border);color:var(--text3)}
+.step.done .step-label,.step.active .step-label{color:var(--text)}
+.step.todo .step-label{color:var(--text3)}
+.step-line{flex:1;height:1px;background:var(--border);margin:0 .4rem}
+.delivery-option{
+  border:1.5px solid var(--border);border-radius:var(--radius);padding:10px 12px;
+  display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.5rem;cursor:pointer;
+}
+.delivery-option.selected{border-color:var(--accent2);background:var(--accent-light)}
+.delivery-option.selected .do-title{color:var(--accent2)}
+.do-radio{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--border);
+  flex-shrink:0;margin-top:2px}
+.delivery-option.selected .do-radio{border-color:var(--accent2);background:var(--accent2)}
+.do-title{font-size:12px;font-weight:600;margin-bottom:2px}
+.do-meta{font-family:var(--mono);font-size:10px;color:var(--text2)}
+.do-price{font-family:var(--mono);font-size:12px;font-weight:600;
+  color:var(--accent2);margin-left:auto;flex-shrink:0}
+.order-summary{background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem}
+.summary-row{display:flex;justify-content:space-between;font-size:12px;
+  padding:.3rem 0;border-bottom:1px solid var(--border)}
+.summary-row:last-child{border:none;font-weight:600;font-size:13px}
+.payment-opt{
+  border:1.5px solid var(--border);border-radius:4px;padding:8px 12px;
+  display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;cursor:pointer;
+}
+.payment-opt.selected{border-color:var(--accent2);background:var(--accent-light)}
+
+/* ── Screen 4: Order Tracking ────────────────────────── */
+.tracking-layout{padding:1.25rem;display:grid;grid-template-columns:1fr 280px;gap:1.25rem}
+.track-timeline{position:relative;padding-left:2rem}
+.track-step{position:relative;padding-bottom:1.25rem}
+.track-step::before{
+  content:'';position:absolute;left:-1.6rem;top:18px;
+  width:1px;height:calc(100% - 8px);background:var(--border);
+}
+.track-step:last-child::before{display:none}
+.track-dot{
+  position:absolute;left:-2rem;top:2px;
+  width:16px;height:16px;border-radius:50%;border:2px solid var(--border);
+  background:var(--surface2);display:flex;align-items:center;justify-content:center;
+}
+.track-dot.done{background:var(--accent2);border-color:var(--accent2)}
+.track-dot.active{background:#fff;border-color:var(--accent2);
+  box-shadow:0 0 0 3px var(--accent-light)}
+.track-dot.done::after{content:'✓';font-size:8px;color:#fff}
+.track-dot.active::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent2)}
+.track-label{font-size:12px;font-weight:600;margin-bottom:2px}
+.track-time{font-family:var(--mono);font-size:10px;color:var(--text3)}
+.map-ph{
+  background:linear-gradient(135deg,#E8F0EC 0%,#D6EBE0 100%);
+  border:1px solid var(--border);border-radius:var(--radius);
+  height:160px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:11px;color:var(--accent2);
+  position:relative;overflow:hidden;
+}
+.map-ph::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 20px,rgba(0,0,0,.04) 20px,rgba(0,0,0,.04) 21px),
+             repeating-linear-gradient(90deg,transparent,transparent 20px,rgba(0,0,0,.04) 20px,rgba(0,0,0,.04) 21px);
+}
+
+/* ── Screen 5: Seller Dashboard ──────────────────────── */
+.stat-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:14px;
+}
+.stat-val{font-family:var(--display);font-size:24px;font-weight:800;letter-spacing:-.5px;margin-bottom:2px}
+.stat-label{font-family:var(--mono);font-size:10px;color:var(--text3)}
+.stat-delta{font-family:var(--mono);font-size:10px;color:var(--accent2);margin-top:4px}
+.chart-ph{
+  background:var(--surface2);border:1px solid var(--border);border-radius:4px;
+  height:80px;display:flex;align-items:flex-end;gap:4px;padding:8px;overflow:hidden;
+}
+.chart-bar{background:var(--accent-light);border-radius:2px 2px 0 0;flex:1;
+  border-bottom:2px solid var(--accent2)}
+.data-table{width:100%;border-collapse:collapse;font-size:11px}
+.data-table th{font-family:var(--mono);font-size:10px;color:var(--text3);
+  padding:6px 10px;text-align:left;border-bottom:1px solid var(--border);
+  background:var(--surface2)}
+.data-table td{padding:8px 10px;border-bottom:1px solid var(--border)}
+.data-table tr:last-child td{border-bottom:none}
+
+/* ── Screen 6: Admin Panel ───────────────────────────── */
+.admin-topbar{
+  background:#1A1814;color:#fff;padding:10px 20px;
+  display:flex;align-items:center;gap:1rem;
+}
+.admin-logo{font-family:var(--display);font-weight:800;font-size:14px}
+.admin-logo span{color:#EE6B6B}
+.admin-stat{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:12px;display:flex;align-items:flex-start;gap:.75rem;
+}
+.admin-stat-icon{
+  width:32px;height:32px;border-radius:6px;display:flex;align-items:center;
+  justify-content:center;font-size:14px;flex-shrink:0;
+}
+.admin-stat-val{font-family:var(--display);font-size:18px;font-weight:800}
+.admin-stat-label{font-family:var(--mono);font-size:10px;color:var(--text3)}
+</style>
+</head>
+<body>
+
+<!-- ── Navigation ─────────────────────────────────────── -->
+<nav class="site-nav">
+  <div class="brand">ShopEase <span>LK</span></div>
+  <a href="#s1" class="active">Home</a>
+  <a href="#s2">Product</a>
+  <a href="#s3">Checkout</a>
+  <a href="#s4">Tracking</a>
+  <a href="#s5">Seller</a>
+  <a href="#s6">Admin</a>
+  <div class="badge-wf">Wireframe · BA Portfolio</div>
+</nav>
+
+<div class="page-wrap">
+
+<!-- ══════════════════════════════════════════════════════
+  SCREEN 1 — HOME PAGE
+══════════════════════════════════════════════════════ -->
+<section class="screen-section" id="s1">
+  <div class="screen-label">
+    <span class="screen-num">Screen 01</span>
+    <span class="screen-title">Home Page / Product Listing</span>
+  </div>
+  <div class="screen-desc">UC-03 · FR-07, FR-08, FR-11 · US-03</div>
+
+  <div class="wf-frame">
+    <div class="wf-bar">
+      <div class="wf-dot r"></div><div class="wf-dot y"></div><div class="wf-dot g"></div>
+      <div class="wf-url">shopeaselk.com</div>
+    </div>
+
+    <!-- Top bar -->
+    <div class="wf-topbar">
+      <div class="wf-logo">ShopEase <span>LK</span></div>
+      <div class="wf-search">
+        <span>🔍</span> Search for products, brands, categories...
+      </div>
+      <div class="wf-topbar-actions">
+        <button class="wf-btn sec">My Orders</button>
+        <button class="wf-btn pri">Cart (3)</button>
+        <button class="wf-btn sec">Account ▾</button>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero-banner">
+      <div class="hero-text">
+        <div class="annotation mb4">🎉 Free delivery above Rs 3,000</div>
+        <h2>Sri Lanka's most trusted<br>online marketplace</h2>
+        <p>Quality-verified sellers · Islandwide delivery · Cash on delivery available</p>
+        <div style="display:flex;gap:.5rem">
+          <button class="wf-btn pri">Shop now</button>
+          <button class="wf-btn sec">How it works</button>
+        </div>
+      </div>
+      <div class="hero-img">[ Promo banner image ]</div>
+    </div>
+
+    <!-- Category strip -->
+    <div class="cat-strip">
+      <div class="cat-pill active">All</div>
+      <div class="cat-pill">Groceries</div>
+      <div class="cat-pill">Electronics</div>
+      <div class="cat-pill">Clothing</div>
+      <div class="cat-pill">Home & Garden</div>
+      <div class="cat-pill">Health & Beauty</div>
+      <div class="cat-pill">Sports</div>
+      <div class="cat-pill">Baby & Kids</div>
+      <div class="cat-pill">Books</div>
+    </div>
+
+    <!-- Filter bar -->
+    <div style="padding:.6rem 1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.5rem;background:var(--surface)">
+      <span style="font-family:var(--mono);font-size:10px;color:var(--text3)">Filter:</span>
+      <button class="wf-btn out sm">Price ▾</button>
+      <button class="wf-btn out sm">Rating ▾</button>
+      <button class="wf-btn out sm">Verified sellers only</button>
+      <button class="wf-btn out sm">Delivery area ▾</button>
+      <span style="margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--text3)">Showing 248 products</span>
+    </div>
+
+    <!-- Products -->
+    <div class="prod-grid">
+      <!-- Product cards -->
+      <div class="prod-card">
+        <div class="prod-thumb">[ Product image ]</div>
+        <div class="prod-info">
+          <div class="prod-name">Basmati Rice 5kg Premium Grade</div>
+          <div class="stars">★★★★★</div>
+          <div class="prod-price">Rs 1,450</div>
+          <div class="flex gap4 mb4" style="margin-top:3px">
+            <div class="verified-badge">✓ Verified</div>
+          </div>
+          <div class="prod-seller">Lanka Grocers</div>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-thumb">[ Product image ]</div>
+        <div class="prod-info">
+          <div class="prod-name">Coconut Oil 1L Pure Cold-Press</div>
+          <div class="stars">★★★★☆</div>
+          <div class="prod-price">Rs 890</div>
+          <div class="flex gap4 mb4" style="margin-top:3px">
+            <div class="verified-badge">✓ Verified</div>
+          </div>
+          <div class="prod-seller">Nature's Best LK</div>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-thumb">[ Product image ]</div>
+        <div class="prod-info">
+          <div class="prod-name">Wireless Earbuds Sport Edition</div>
+          <div class="stars">★★★★☆</div>
+          <div class="prod-price">Rs 5,200</div>
+          <div class="flex gap4 mb4" style="margin-top:3px">
+            <div class="verified-badge">✓ Verified</div>
+          </div>
+          <div class="prod-seller">TechZone Colombo</div>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-thumb">[ Product image ]</div>
+        <div class="prod-info">
+          <div class="prod-name">Washing Powder 2kg Family Pack</div>
+          <div class="stars">★★★☆☆</div>
+          <div class="prod-price">Rs 620</div>
+          <div class="flex gap4 mb4" style="margin-top:3px">
+            <span class="wf-tag gray">Unverified</span>
+          </div>
+          <div class="prod-seller">Daily Needs Store</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div style="padding:.75rem 1rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:.4rem">
+      <button class="wf-btn out sm">← Prev</button>
+      <button class="wf-btn pri sm">1</button>
+      <button class="wf-btn out sm">2</button>
+      <button class="wf-btn out sm">3</button>
+      <button class="wf-btn out sm">Next →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+  SCREEN 2 — PRODUCT DETAIL PAGE
+══════════════════════════════════════════════════════ -->
+<section class="screen-section" id="s2">
+  <div class="screen-label">
+    <span class="screen-num">Screen 02</span>
+    <span class="screen-title">Product Detail Page</span>
+  </div>
+  <div class="screen-desc">UC-04 · FR-09, FR-10, FR-11, FR-35, FR-36, FR-37 · US-04, US-09</div>
+
+  <div class="wf-frame">
+    <div class="wf-bar">
+      <div class="wf-dot r"></div><div class="wf-dot y"></div><div class="wf-dot g"></div>
+      <div class="wf-url">shopeaselk.com/product/basmati-rice-5kg</div>
+    </div>
+    <div class="wf-topbar">
+      <div class="wf-logo">ShopEase <span>LK</span></div>
+      <div class="wf-search"><span>🔍</span> Search...</div>
+      <div class="wf-topbar-actions">
+        <button class="wf-btn sec">My Orders</button>
+        <button class="wf-btn pri">Cart (3)</button>
+      </div>
+    </div>
+
+    <div class="breadcrumb">Home / Groceries / Rice &amp; Grains / <strong>Basmati Rice 5kg Premium Grade</strong></div>
+
+    <div class="prod-detail-layout">
+      <!-- Left: Images -->
+      <div>
+        <div class="thumb-main">[ Main product photo ]</div>
+        <div class="thumb-row">
+          <div class="thumb-sm"></div><div class="thumb-sm"></div>
+          <div class="thumb-sm"></div><div class="thumb-sm"></div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--text3);padding:14px 8px">+2 more</div>
+        </div>
+      </div>
+
+      <!-- Right: Info -->
+      <div>
+        <div class="flex gap4 mb4">
+          <div class="verified-badge">✓ Verified Seller</div>
+          <span class="wf-tag green">In Stock</span>
+        </div>
+        <div style="font-family:var(--display);font-size:20px;font-weight:700;margin-bottom:.4rem">
+          Basmati Rice 5kg Premium Grade
+        </div>
+        <div class="flex gap4 mb8">
+          <div class="stars">★★★★★</div>
+          <span class="mono small muted">4.8 (127 reviews)</span>
+        </div>
+        <div style="font-family:var(--display);font-size:26px;font-weight:800;color:var(--accent2);margin-bottom:.75rem">
+          Rs 1,450
+        </div>
+        <div class="wf-divider"></div>
+        <div class="wf-label">Seller</div>
+        <div class="flex gap4 mb8">
+          <span class="small bold">Lanka Grocers</span>
+          <div class="verified-badge">✓ Verified</div>
+          <span class="mono xsmall muted">Member since 2024</span>
+        </div>
+        <div class="wf-label">Description</div>
+        <div class="small muted mb8">Premium quality Basmati rice sourced directly from trusted farms. Long grain, fragrant, perfect for biriyani and everyday cooking. Packed hygienically with quality certification.</div>
+        <div class="wf-label">Quantity</div>
+        <div class="flex gap4 mb8">
+          <button class="wf-btn out sm">−</button>
+          <span class="mono" style="padding:0 12px">1</span>
+          <button class="wf-btn out sm">+</button>
+        </div>
+        <div class="flex gap8">
+          <button class="wf-btn pri" style="flex:1;padding:10px">Add to Cart</button>
+          <button class="wf-btn out" style="padding:10px 16px">♡ Wishlist</button>
+        </div>
+        <div class="wf-divider"></div>
+        <div class="grid2" style="gap:.5rem">
+          <div class="flex gap4"><span>🚚</span><span class="xsmall muted">PickMe same-day available</span></div>
+          <div class="flex gap4"><span>📦</span><span class="xsmall muted">Pickup points islandwide</span></div>
+          <div class="flex gap4"><span>💵</span><span class="xsmall muted">Cash on delivery available</span></div>
+          <div class="flex gap4"><span>↩️</span><span class="xsmall muted">7-day return policy</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reviews section -->
+    <div style="padding:1.25rem;border-top:1px solid var(--border)">
+      <div class="flex-between mb8">
+        <div class="wf-section-head">Customer Reviews (127)</div>
+        <button class="wf-btn out sm">Write a review</button>
+      </div>
+      <div class="flex gap8 mb12">
+        <div style="text-align:center;padding:12px 20px;background:var(--accent-light);border-radius:6px">
+          <div style="font-family:var(--display);font-size:32px;font-weight:800;color:var(--accent2)">4.8</div>
+          <div class="stars">★★★★★</div>
+          <div class="mono xsmall muted">127 reviews</div>
+        </div>
+        <div style="flex:1">
+          <div class="flex gap4 mb4"><span class="xsmall mono" style="width:40px">5 ★</span><div style="flex:1;height:6px;background:var(--surface2);border-radius:3px"><div style="width:75%;height:100%;background:var(--accent2);border-radius:3px"></div></div><span class="xsmall mono muted" style="width:24px">75%</span></div>
+          <div class="flex gap4 mb4"><span class="xsmall mono" style="width:40px">4 ★</span><div style="flex:1;height:6px;background:var(--surface2);border-radius:3px"><div style="width:18%;height:100%;background:var(--accent2);border-radius:3px"></div></div><span class="xsmall mono muted" style="width:24px">18%</span></div>
+          <div class="flex gap4"><span class="xsmall mono" style="width:40px">3 ★</span><div style="flex:1;height:6px;background:var(--surface2);border-radius:3px"><div style="width:7%;height:100%;background:var(--accent2);border-radius:3px"></div></div><span class="xsmall mono muted" style="width:24px">7%</span></div>
+        </div>
+      </div>
+      <div class="review-row">
+        <div class="review-avatar">K</div>
+        <div style="flex:1">
+          <div class="flex-between"><span class="small bold">Kasun P.</span><span class="mono xsmall muted">2 days ago</span></div>
+          <div class="stars" style="font-size:10px">★★★★★</div>
+          <div class="small muted">Excellent quality rice. Delivery was fast through PickMe. Packed very well. Will order again!</div>
+        </div>
+      </div>
+      <div class="review-row">
+        <div class="review-avatar">N</div>
+        <div style="flex:1">
+          <div class="flex-between"><span class="small bold">Nimali S.</span><span class="mono xsmall muted">5 days ago</span></div>
+          <div class="stars" style="font-size:10px">★★★★☆</div>
+          <div class="small muted">Good rice but delivery took 2 days. Collected from pickup point near my house. Very convenient!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+  SCREEN 3 — CHECKOUT + DELIVERY SELECTION
+══════════════════════════════════════════════════════ -->
+<section class="screen-section" id="s3">
+  <div class="screen-label">
+    <span class="screen-num">Screen 03</span>
+    <span class="screen-title">Checkout + Delivery Selection</span>
+  </div>
+  <div class="screen-desc">UC-05, UC-06, UC-07 · FR-13 to FR-29 · US-05, US-06, US-07</div>
+
+  <div class="wf-frame">
+    <div class="wf-bar">
+      <div class="wf-dot r"></div><div class="wf-dot y"></div><div class="wf-dot g"></div>
+      <div class="wf-url">shopeaselk.com/checkout</div>
+    </div>
+    <div class="wf-topbar">
+      <div class="wf-logo">ShopEase <span>LK</span></div>
+      <div style="flex:1"></div>
+      <span class="mono xsmall" style="color:rgba(255,255,255,.6)">Secure checkout 🔒</span>
+    </div>
+
+    <!-- Step bar -->
+    <div class="step-bar">
+      <div class="step done"><div class="step-circle">✓</div><span class="step-label">Cart</span></div>
+      <div class="step-line"></div>
+      <div class="step done"><div class="step-circle">✓</div><span class="step-label">Address</span></div>
+      <div class="step-line"></div>
+      <div class="step active"><div class="step-circle">3</div><span class="step-label">Delivery</span></div>
+      <div class="step-line"></div>
+      <div class="step todo"><div class="step-circle">4</div><span class="step-label">Payment</span></div>
+    </div>
+
+    <div class="checkout-layout">
+      <div>
+        <!-- Delivery urgency toggle -->
+        <div class="wf-card mb8">
+          <div class="wf-section-head mb8">How urgent is your delivery?</div>
+          <div class="grid2">
+            <div class="delivery-option selected">
+              <div class="do-radio" style="background:var(--accent2);border-color:var(--accent2)"></div>
+              <div>
+                <div class="do-title">🚀 Urgent</div>
+                <div class="do-meta">Same-day delivery · Courier dispatched now</div>
+              </div>
+            </div>
+            <div class="delivery-option">
+              <div class="do-radio"></div>
+              <div>
+                <div class="do-title">📦 Standard</div>
+                <div class="do-meta">Next-day or scheduled · Lower cost</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delivery options -->
+        <div class="wf-card mb8">
+          <div class="wf-section-head mb4">Choose delivery method</div>
+          <div class="mono xsmall muted mb8" style="background:var(--accent-light);padding:5px 10px;border-radius:4px;color:var(--accent2)">
+            ✓ PickMe & Uber available in your area (Colombo 5)
+          </div>
+
+          <div class="delivery-option selected">
+            <div class="do-radio" style="background:var(--accent2);border-color:var(--accent2)"></div>
+            <div style="flex:1">
+              <div class="do-title">PickMe Courier</div>
+              <div class="do-meta">ETA: 45 min · Driver available now</div>
+            </div>
+            <div class="do-price">Rs 320</div>
+          </div>
+
+          <div class="delivery-option">
+            <div class="do-radio"></div>
+            <div style="flex:1">
+              <div class="do-title">Uber Delivery</div>
+              <div class="do-meta">ETA: 55 min · 3 drivers nearby</div>
+            </div>
+            <div class="do-price">Rs 380</div>
+          </div>
+
+          <div class="delivery-option">
+            <div class="do-radio"></div>
+            <div style="flex:1">
+              <div class="do-title">ShopEase Delivery</div>
+              <div class="do-meta">Tomorrow 9am–6pm · Scheduled slot</div>
+            </div>
+            <div class="do-price">Rs 150</div>
+          </div>
+
+          <div class="delivery-option">
+            <div class="do-radio"></div>
+            <div style="flex:1">
+              <div class="do-title">📍 Pickup Point</div>
+              <div class="do-meta">Collect from Keells Pharmacy, Colombo 5 · Ready tomorrow</div>
+            </div>
+            <div class="do-price" style="color:var(--accent2)">FREE</div>
+          </div>
+        </div>
+
+        <!-- Payment method -->
+        <div class="wf-card mb8">
+          <div class="wf-section-head mb8">Payment method</div>
+          <div class="payment-opt selected">
+            <span>💳</span>
+            <div style="flex:1">
+              <div class="small bold">Card payment</div>
+              <div class="mono xsmall muted">Visa, Mastercard · Secure via PayHere</div>
+            </div>
+          </div>
+          <div class="payment-opt">
+            <span>💵</span>
+            <div style="flex:1">
+              <div class="small bold">Cash on delivery (COD)</div>
+              <div class="mono xsmall muted">Pay driver or pickup agent in cash</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="wf-btn pri" style="width:100%;padding:12px;font-size:13px">
+          Confirm order →
+        </button>
+      </div>
+
+      <!-- Order summary -->
+      <div>
+        <div class="order-summary">
+          <div class="wf-section-head mb8">Order summary</div>
+          <div class="summary-row"><span>Basmati Rice 5kg × 1</span><span>Rs 1,450</span></div>
+          <div class="summary-row"><span>Coconut Oil 1L × 2</span><span>Rs 1,780</span></div>
+          <div class="summary-row"><span>Subtotal</span><span>Rs 3,230</span></div>
+          <div class="summary-row"><span>Delivery (PickMe)</span><span>Rs 320</span></div>
+          <div class="summary-row"><span>Promo code</span><span style="color:var(--accent2)">− Rs 0</span></div>
+          <div class="summary-row"><span class="bold">Total</span><span class="bold" style="color:var(--accent2)">Rs 3,550</span></div>
+        </div>
+        <div style="margin-top:.75rem">
+          <div class="wf-label">Promo code</div>
+          <div class="flex gap4">
+            <input class="wf-input" placeholder="Enter code" style="flex:1">
+            <button class="wf-btn out sm">Apply</button>
+          </div>
+        </div>
+        <div style="margin-top:.75rem;padding:.75rem;background:var(--accent-light);border-radius:4px">
+          <div class="mono xsmall" style="color:var(--accent2)">📦 Delivering to:</div>
+          <div class="small bold" style="margin-top:3px">42/3 Galle Road, Colombo 5</div>
+          <button class="wf-btn out sm" style="margin-top:4px">Change address</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+  SCREEN 4 — ORDER TRACKING
+══════════════════════════════════════════════════════ -->
+<section class="screen-section" id="s4">
+  <div class="screen-label">
+    <span class="screen-num">Screen 04</span>
+    <span class="screen-title">Order Tracking Page</span>
+  </div>
+  <div class="screen-desc">UC-08 · FR-30, FR-31, FR-32, FR-33, FR-34 · US-08</div>
+
+  <div class="wf-frame">
+    <div class="wf-bar">
+      <div class="wf-dot r"></div><div class="wf-dot y"></div><div class="wf-dot g"></div>
+      <div class="wf-url">shopeaselk.com/orders/ORD-20260524-4821</div>
+    </div>
+    <div class="wf-topbar">
+      <div class="wf-logo">ShopEase <span>LK</span></div>
+      <div style="flex:1"></div>
+      <button class="wf-btn sec">← My Orders</button>
+    </div>
+
+    <div class="tracking-layout">
+      <div>
+        <!-- Order header -->
+        <div class="wf-card mb8">
+          <div class="flex-between mb8">
+            <div>
+              <div class="mono xsmall muted">Order ID</div>
+              <div class="mono small bold">ORD-20260524-4821</div>
+            </div>
+            <span class="wf-tag amber">Out for Delivery</span>
+          </div>
+          <div class="grid3" style="gap:.5rem">
+            <div><div class="wf-label">Placed on</div><div class="small">24 May 2026, 10:32am</div></div>
+            <div><div class="wf-label">Delivery via</div><div class="small">PickMe Courier</div></div>
+            <div><div class="wf-label">Payment</div><div class="small">Card · Rs 3,550</div></div>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="wf-card mb8">
+          <div class="wf-section-head mb12">Delivery timeline</div>
+          <div class="track-timeline">
+            <div class="track-step">
+              <div class="track-dot done"></div>
+              <div class="track-label">Order confirmed</div>
+              <div class="track-time">24 May · 10:32am · Payment received</div>
+            </div>
+            <div class="track-step">
+              <div class="track-dot done"></div>
+              <div class="track-label">Order packed</div>
+              <div class="track-time">24 May · 11:15am · Seller: Lanka Grocers</div>
+            </div>
+            <div class="track-step">
+              <div class="track-dot done"></div>
+              <div class="track-label">Dispatched to courier</div>
+              <div class="track-time">24 May · 11:45am · PickMe driver assigned</div>
+            </div>
+            <div class="track-step">
+              <div class="track-dot active"></div>
+              <div class="track-label accent">Out for delivery</div>
+              <div class="track-time">24 May · 12:20pm · Driver: Ruwan K. · ETA 1:05pm</div>
+            </div>
+            <div class="track-step">
+              <div class="track-dot"></div>
+              <div class="track-label muted">Delivered</div>
+              <div class="track-time">Estimated: 24 May · 1:05pm</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Driver info -->
+        <div class="wf-card">
+          <div class="wf-section-head mb8">Driver details</div>
+          <div class="flex gap8">
+            <div class="review-avatar" style="width:40px;height:40px;font-size:14px">R</div>
+            <div style="flex:1">
+              <div class="small bold">Ruwan Kumarasinghe</div>
+              <div class="mono xsmall muted">PickMe Courier · Vehicle: ABC-1234</div>
+              <div class="stars" style="font-size:10px">★★★★★</div>
+            </div>
+            <button class="wf-btn out sm">📞 Call</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Map + items -->
+      <div>
+        <div class="wf-card mb8">
+          <div class="wf-label mb4">Live location</div>
+          <div class="map-ph" style="position:relative;z-index:0">
+            <div style="position:relative;z-index:1;text-align:center">
+              📍 Driver is 2.3km away<br>
+              <span style="font-size:10px">ETA: ~12 minutes</span>
+            </div>
+          </div>
+          <div class="mono xsmall muted" style="margin-top:.4rem;text-align:center">
+            Delivering to: 42/3 Galle Road, Colombo 5
+          </div>
+        </div>
+
+        <div class="wf-card">
+          <div class="wf-section-head mb8">Items in this order</div>
+          <div class="summary-row"><span class="small">Basmati Rice 5kg × 1</span><span class="mono small">Rs 1,450</span></div>
+          <div class="summary-row"><span class="small">Coconut Oil 1L × 2</span><span class="mono small">Rs 1,780</span></div>
+          <div class="summary-row" style="border:none"><span class="small bold">Total paid</span><span class="mono small bold" style="color:var(--accent2)">Rs 3,550</span></div>
+          <div class="wf-divider"></div>
+          <button class="wf-btn out sm" style="width:100%">Report an issue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+  SCREEN 5 — SELLER DASHBOARD
+══════════════════════════════════════════════════════ -->
+<section class="screen-section" id="s5">
+  <div class="screen-label">
+    <span class="screen-num">Screen 05</span>
+    <span class="screen-title">Seller Dashboard</span>
+  </div>
+  <div class="screen-desc">UC-11, UC-12 · FR-39 to FR-44 · US-12, US-13, US-14</div>
+
+  <div class="wf-frame">
+    <div class="wf-bar">
+      <div class="wf-dot r"></div><div class="wf-dot y"></div><div class="wf-dot g"></div>
+      <div class="wf-url">seller.shopeaselk.com/dashboard</div>
+    </div>
+    <div class="wf-topbar">
+      <div class="wf-logo">ShopEase <span>LK</span> · Seller</div>
+      <div style="flex:1"></div>
+      <div class="verified-badge" style="font-size:11px;padding:4px 10px">✓ Verified Seller</div>
+      <span class="mono xsmall" style="color:rgba(255,255,255,.6);margin-left:.5rem">Lanka Grocers ▾</span>
+    </div>
+
+    <div class="sidebar-layout">
+      <!-- Sidebar -->
+      <div class="wf-sidebar">
+        <div class="wf-sidebar-section">Main</div>
+        <div class="wf-sidebar-item active">📊 Dashboard</div>
+        <div class="wf-sidebar-item">📦 Orders</div>
+        <div class="wf-sidebar-item">🛍 Products</div>
+        <div class="wf-sidebar-item">📋 Inventory</div>
+        <div class="wf-sidebar-section">Finance</div>
+        <div class="wf-sidebar-item">💰 Earnings</div>
+        <div class="wf-sidebar-item">🧾 Settlements</div>
+        <div class="wf-sidebar-section">Insights</div>
+        <div class="wf-sidebar-item">⭐ Reviews</div>
+        <div class="wf-sidebar-item">📈 Analytics</div>
+        <div class="wf-sidebar-section">Account</div>
+        <div class="wf-sidebar-item">⚙ Settings</div>
+      </div>
+
+      <!-- Main content -->
+      <div style="padding:1.25rem;background:var(--bg)">
+        <!-- Stats row -->
+        <div class="grid4 mb12">
+          <div class="stat-card">
+            <div class="stat-label">Total revenue</div>
+            <div class="stat-val">Rs 84,200</div>
+            <div class="stat-delta">↑ +12% this month</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Orders today</div>
+            <div class="stat-val">14</div>
+            <div class="stat-delta">↑ +3 from yesterday</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Pending dispatch</div>
+            <div class="stat-val" style="color:#E0A830">6</div>
+            <div class="stat-delta" style="color:var(--warn-text)">Action needed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Avg. rating</div>
+            <div class="stat-val">4.7</div>
+            <div class="stars" style="font-size:11px">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="grid2 mb12">
+          <!-- Revenue chart -->
+          <div class="wf-card">
+            <div class="wf-section-head mb8">Revenue — last 7 days</div>
+            <div class="chart-ph">
+              <div class="chart-bar" style="height:40%"></div>
+              <div class="chart-bar" style="height:60%"></div>
+              <div class="chart-bar" style="height:35%"></div>
+              <div class="chart-bar" style="height:80%"></div>
+              <div class="chart-bar" style="height:55%"></div>
+              <div class="chart-bar" style="height:90%"></div>
+              <div class="chart-bar" style="height:70%"></div>
+            </div>
+            <div class="flex-between" style="margin-top:.4rem">
+              <span class="mono xsmall muted">Mon</span>
+              <span class="mono xsmall muted">Tue</span>
+              <span class="mono xsmall muted">Wed</span>
+              <span class="mono xsmall muted">Thu</span>
+              <span class="mono xsmall muted">Fri</span>
+              <span class="mono xsmall muted">Sat</span>
+              <span class="mono xsmall muted">Sun</span>
+            </div>
+          </div>
+
+          <!-- Low stock alerts -->
+          <div class="wf-card">
+            <div class="flex-between mb8">
+              <div class="wf-section-head">Low stock alerts</div>
+              <span class="wf-tag red">3 items</span>
+            </div>
+            <div class="summary-row">
+              <span class="small">Basmati Rice 5kg</span>
+              <span class="wf-tag red">4 left</span>
+            </div>
+            <div class="summary-row">
+              <span class="small">Coconut Oil 1L</span>
+              <span class="wf-tag amber">6 left</span>
+            </div>
+            <div class="summary-row" style="border:none">
+              <span class="small">Green Tea 50 bags</span>
+              <span class="wf-tag red">2 left</span>
+            </div>
+            <button class="wf-btn out sm" style="width:100%;margin-top:.5rem">Update inventory</button>
+          </div>
+        </div>
+
+        <!-- Recent orders table -->
+        <div class="wf-card">
+          <div class="flex-between mb8">
+            <div class="wf-section-head">Recent orders</div>
+            <button class="wf-btn out sm">View all orders</button>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Order ID</th><th>Customer</th><th>Items</th>
+                <th>Delivery</th><th>Total</th><th>Status</th><th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mono xsmall">ORD-4821</td>
+                <td class="small">Kasun P.</td>
+                <td class="small">Basmati Rice × 1</td>
+                <td><span class="wf-tag blue">PickMe</span></td>
+                <td class="mono small">Rs 1,450</td>
+                <td><span class="wf-tag amber">Pending</span></td>
+                <td><button class="wf-btn pri sm">Pack</button></td>
+              </tr>
+              <tr>
+                <td class="mono xsmall">ORD-4820</td>
+                <td class="small">Nimali S.</td>
+                <td class="small">Coconut Oil × 2</td>
+                <td><span class="wf-tag gray">Pickup</span></td>
+                <td class="mono small">Rs 1,780</td>
+                <td><span class="wf-tag green">Dispatched</span></td>
+                <td><button class="wf-btn out sm">View</button></td>
+              </tr>
+              <tr>
+                <td class="mono xsmall">ORD-4819</td>
+                <td class="small">Amara W.</td>
+                <td class="small">Green Tea × 3</td>
+                <td><span class="wf-tag blue">ShopEase</span></td>
+                <td class="mono small">Rs 2,100</td>
+                <td><span class="wf-tag green">Delivered</span></td>
+                <td><button class="wf-btn out sm">View</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+  SCREEN 6 — ADMIN PANEL
+══════════════════════════════════════════════════════ -->
+<section class="screen-section" id="s6">
+  <div class="screen-label">
+    <span class="screen-num">Screen 06</span>
+    <span class="screen-title">Admin Panel</span>
+  </div>
+  <div class="screen-desc">UC-13, UC-14, UC-15, UC-16 · FR-45 to FR-50 · US-16, US-17, US-18, US-19</div>
+
+  <div class="wf-frame">
+    <div class="wf-bar">
+      <div class="wf-dot r"></div><div class="wf-dot y"></div><div class="wf-dot g"></div>
+      <div class="wf-url">admin.shopeaselk.com</div>
+    </div>
+
+    <!-- Admin top bar -->
+    <div class="admin-topbar">
+      <div class="admin-logo">ShopEase <span>LK</span> · Admin</div>
+      <div style="flex:1"></div>
+      <span class="wf-tag red">3 disputes pending</span>
+      <span class="wf-tag amber" style="margin-left:.4rem">5 sellers pending approval</span>
+      <span class="mono xsmall" style="color:rgba(255,255,255,.5);margin-left:1rem">Admin User ▾</span>
+    </div>
+
+    <div class="sidebar-layout">
+      <!-- Sidebar -->
+      <div class="wf-sidebar">
+        <div class="wf-sidebar-section">Overview</div>
+        <div class="wf-sidebar-item active">📊 Dashboard</div>
+        <div class="wf-sidebar-section">Sellers</div>
+        <div class="wf-sidebar-item">⏳ Pending approval <span class="wf-tag amber" style="margin-left:auto">5</span></div>
+        <div class="wf-sidebar-item">✅ Active sellers</div>
+        <div class="wf-sidebar-item">🚫 Suspended</div>
+        <div class="wf-sidebar-section">Orders</div>
+        <div class="wf-sidebar-item">📦 All orders</div>
+        <div class="wf-sidebar-item">🚨 Disputes <span class="wf-tag red" style="margin-left:auto">3</span></div>
+        <div class="wf-sidebar-section">Platform</div>
+        <div class="wf-sidebar-item">📍 Pickup points</div>
+        <div class="wf-sidebar-item">📢 Banners</div>
+        <div class="wf-sidebar-item">📈 Analytics</div>
+        <div class="wf-sidebar-section">Settings</div>
+        <div class="wf-sidebar-item">⚙ Platform settings</div>
+      </div>
+
+      <!-- Main content -->
+      <div style="padding:1.25rem;background:var(--bg)">
+        <!-- Platform stats -->
+        <div class="grid4 mb12">
+          <div class="admin-stat">
+            <div class="admin-stat-icon" style="background:var(--accent-light)">🛍</div>
+            <div>
+              <div class="admin-stat-val">1,284</div>
+              <div class="admin-stat-label">Total orders this month</div>
+            </div>
+          </div>
+          <div class="admin-stat">
+            <div class="admin-stat-icon" style="background:#D6E4F5">👥</div>
+            <div>
+              <div class="admin-stat-val">342</div>
+              <div class="admin-stat-label">Active sellers</div>
+            </div>
+          </div>
+          <div class="admin-stat">
+            <div class="admin-stat-icon" style="background:var(--warn)">💰</div>
+            <div>
+              <div class="admin-stat-val">Rs 2.4M</div>
+              <div class="admin-stat-label">Platform GMV</div>
+            </div>
+          </div>
+          <div class="admin-stat">
+            <div class="admin-stat-icon" style="background:var(--danger)">🚨</div>
+            <div>
+              <div class="admin-stat-val" style="color:#9C0006">3</div>
+              <div class="admin-stat-label">Open disputes</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid2 mb12">
+          <!-- Pending seller approvals -->
+          <div class="wf-card">
+            <div class="flex-between mb8">
+              <div class="wf-section-head">Seller approvals</div>
+              <span class="wf-tag amber">5 pending</span>
+            </div>
+            <table class="data-table">
+              <thead><tr><th>Business name</th><th>Category</th><th>Applied</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="small bold">Fresh Farms LK</td>
+                  <td><span class="wf-tag gray">Groceries</span></td>
+                  <td class="mono xsmall">23 May</td>
+                  <td>
+                    <div class="flex gap4">
+                      <button class="wf-btn pri sm">✓ Approve</button>
+                      <button class="wf-btn danger sm">✗ Reject</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="small bold">TechZone Plus</td>
+                  <td><span class="wf-tag gray">Electronics</span></td>
+                  <td class="mono xsmall">22 May</td>
+                  <td>
+                    <div class="flex gap4">
+                      <button class="wf-btn pri sm">✓ Approve</button>
+                      <button class="wf-btn danger sm">✗ Reject</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="small bold">Ayur Herbs</td>
+                  <td><span class="wf-tag gray">Health</span></td>
+                  <td class="mono xsmall">21 May</td>
+                  <td>
+                    <div class="flex gap4">
+                      <button class="wf-btn pri sm">✓ Approve</button>
+                      <button class="wf-btn danger sm">✗ Reject</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Open disputes -->
+          <div class="wf-card">
+            <div class="flex-between mb8">
+              <div class="wf-section-head">Open disputes</div>
+              <span class="wf-tag red">3 urgent</span>
+            </div>
+            <table class="data-table">
+              <thead><tr><th>Order</th><th>Reason</th><th>Days open</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="mono xsmall">ORD-4801</td>
+                  <td class="small">Wrong item delivered</td>
+                  <td><span class="wf-tag red">4 days</span></td>
+                  <td><button class="wf-btn out sm">Resolve</button></td>
+                </tr>
+                <tr>
+                  <td class="mono xsmall">ORD-4788</td>
+                  <td class="small">Item not received</td>
+                  <td><span class="wf-tag red">3 days</span></td>
+                  <td><button class="wf-btn out sm">Resolve</button></td>
+                </tr>
+                <tr>
+                  <td class="mono xsmall">ORD-4772</td>
+                  <td class="small">Damaged product</td>
+                  <td><span class="wf-tag amber">1 day</span></td>
+                  <td><button class="wf-btn out sm">Resolve</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Pickup points management -->
+        <div class="wf-card">
+          <div class="flex-between mb8">
+            <div class="wf-section-head">Pickup point locations</div>
+            <button class="wf-btn pri sm">+ Add location</button>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr><th>Location name</th><th>District</th><th>Contact</th><th>Orders this month</th><th>Status</th><th>Action</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="small bold">Keells Pharmacy — Col 5</td>
+                <td class="small">Colombo</td>
+                <td class="mono xsmall">077-1234567</td>
+                <td class="mono small">48</td>
+                <td><span class="wf-tag green">Active</span></td>
+                <td><button class="wf-btn out sm">Edit</button></td>
+              </tr>
+              <tr>
+                <td class="small bold">Cargills Food City — Kandy</td>
+                <td class="small">Kandy</td>
+                <td class="mono xsmall">081-9876543</td>
+                <td class="mono small">31</td>
+                <td><span class="wf-tag green">Active</span></td>
+                <td><button class="wf-btn out sm">Edit</button></td>
+              </tr>
+              <tr>
+                <td class="small bold">Post Office — Galle Fort</td>
+                <td class="small">Galle</td>
+                <td class="mono xsmall">091-2345678</td>
+                <td class="mono small">19</td>
+                <td><span class="wf-tag red">Inactive</span></td>
+                <td><button class="wf-btn pri sm">Activate</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- end page-wrap -->
+
+<script>
+// Highlight active nav on scroll
+const sections = document.querySelectorAll('.screen-section');
+const navLinks = document.querySelectorAll('.site-nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 80) current = s.id; });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if(a.getAttribute('href') === '#'+current) a.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
